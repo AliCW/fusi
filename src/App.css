@@ -1,6 +1,13 @@
 @import "tailwindcss";
+
+@font-face {
+    font-family: "monday-sans.regular";
+    src: local("monday-sans.regular"), url(./monday-sans.regular.ttf) format("truetype")
+}
+
 * {
     box-sizing: border-box;
+    font-family: "monday-sans.regular";
 }
 
 .loader-wrapper {
