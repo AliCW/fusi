@@ -4,6 +4,16 @@ const api = axios.create({
     baseURL: "http://localhost:10000/"
 });
 
+export const getAllArtsts = () => {
+    return api
+        .get("http://localhost:10000/api/artists/all")
+        .then((response) => {
+            return response;
+        }).catch((error) => {
+            return error;
+        });
+};
+
 export const getThumbnails = () => {
     return api
         .get("http://localhost:10000/api/images/thumbnails")

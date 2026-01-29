@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import Loader from "./Loader.jsx";
+import LoaderMoon from "./LoaderMoon.jsx";
 
 export default function LandingImages({ thumbnails }){
 
@@ -12,7 +12,7 @@ export default function LandingImages({ thumbnails }){
     };
 
     if(thumbnails === undefined){
-        return <Loader />
+        return <LoaderMoon />
     };
 
     return (
@@ -20,7 +20,7 @@ export default function LandingImages({ thumbnails }){
             {thumbnails.map((thumbnail, index) => {
                 return (
                     <div key={thumbnail.name} className={isLast(index, thumbnails.length) ? "landing-image-wrapper offset-landing" : "landing-image-wrapper"}>
-                        <Link href={`/artists/${thumbnail.artist}`} className="link">
+                        <Link to={`/artists/${thumbnail.artist}`} className="link">
                             <img
                                 src={thumbnail.raw_link}
                                 height="500"

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Loader from "./Loader.jsx";
+import LoaderMoon from "./LoaderMoon.jsx";
 import * as api from "../../api/api.js";
 import LandingImages from './LandingImages.jsx';
 
@@ -11,7 +11,6 @@ export default function Home() {
 
     useEffect(() => {
         api.getThumbnails().then(({ data }) => {
-            console.log(data.data, "this is the data here <<<<<");
             setThumbnails(data.data);
             isLoading(false);
         }).catch((error) => {
@@ -23,7 +22,7 @@ export default function Home() {
 
 
     if(loading){
-        return <Loader />
+        return <LoaderMoon />
     };
 
     return (

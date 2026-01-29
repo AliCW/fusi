@@ -31,7 +31,8 @@
     "react-spinners": "^0.17.0",
     "style-loader": "^4.0.0",
     "tailwindcss": "^4.1.18",
-    "webpack": "^5.104.1"
+    "webpack": "^5.104.1",
+    "yet-another-react-lightbox": "^3.28.0"
   },
   "devDependencies": {
     "@types/lodash": "^4.17.23",

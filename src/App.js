@@ -2,6 +2,7 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Home from "./components/Home.jsx";
 import Nav from "./components/Nav.jsx";
+import SingleArtist from "./components/SingleArtist.jsx";
 import "./App.css";
 
 export default function App(){
@@ -11,6 +12,7 @@ export default function App(){
             <Nav />
             <Routes>
                 <Route path="/" element={<Home />} />
+                <Route path="/artists/:artist" element={<SingleArtist/>} />
             </Routes>
         </div>
     );
