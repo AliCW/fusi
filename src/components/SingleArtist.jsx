@@ -14,13 +14,18 @@ export default function SingleArtist () {
     const [params, setParams] = useState();
     // const fetchArtistInfo = await getArtistInfo(artist);
 
-    if(params !== artist && params !== undefined){
+    console.log(params, "params")
+    console.log(artist, "artust")
+    
+
+    if(params !== artist && params !== undefined){ //detect parameter change & force refresh to trigger useEffect
         window.location.reload();
     };
     
     useEffect(() => {
         api.getArtist(artist).then((  data  ) => {
             isLoading(false);
+            setParams(artist);
             if(data.status === 200){
                 setImages(data.data.data);
                 return;
@@ -28,7 +33,6 @@ export default function SingleArtist () {
             else {
                 navigate("/not_found", { replace: true });
             };
-            setParams(artist);
         }).catch((error) => {
             setError(true);
             console.log(error, "error")

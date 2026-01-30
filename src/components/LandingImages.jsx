@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import LoaderMoon from "./LoaderMoon.jsx";
-import formatName from "../utils/utils.js";
+import { formatName } from "../utils/utils.js";
 
 export default function LandingImages({ thumbnails }){
 
