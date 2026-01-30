@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import LoaderMoon from "./LoaderMoon.jsx";
+import formatName from "../utils/utils.js";
 
 export default function LandingImages({ thumbnails }){
 
@@ -28,7 +29,7 @@ export default function LandingImages({ thumbnails }){
                                 className="landing-image"
                             />
                             <p className="landing-image-artist active">
-                                {(thumbnail.artist)}
+                                {formatName(thumbnail.artist)}
                             </p>
                         </Link>
                     </div>

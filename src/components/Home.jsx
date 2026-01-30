@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import LoaderMoon from "./LoaderMoon.jsx";
 import * as api from "../../api/api.js";
-import LandingImages from './LandingImages.jsx';
+import LandingImages from "./LandingImages.jsx";
+import Error from "./Error.jsx";
 
 export default function Home() {
 
@@ -11,8 +12,14 @@ export default function Home() {
 
     useEffect(() => {
         api.getThumbnails().then(({ data }) => {
-            setThumbnails(data.data);
-            isLoading(false);
+            if(data === undefined){
+                setError(true);
+                return;
+            }
+            else {
+                isLoading(false);
+                setThumbnails(data.data);
+            }
         }).catch((error) => {
             setError(true);
             console.log(error, "error")
@@ -27,7 +34,7 @@ export default function Home() {
 
     return (
         <div>
-            {error ? <h1>Error</h1>
+            {error ? <Error />
             :
             <div>
                 <LandingImages thumbnails={thumbnails} />

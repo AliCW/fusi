@@ -3,9 +3,10 @@ import { useParams, useNavigate } from 'react-router-dom';
 import * as api from "../../api/api.js";
 import LoaderMoon from "./LoaderMoon.jsx";
 import ImageCard from "./ImageCard.jsx";
+import NotFound from "./NotFound.jsx";
 
 export default function SingleArtist () {
-
+    const navigate = useNavigate();
     const { artist } = useParams();
     const [loading, isLoading] = useState(true);
     const [error, setError] = useState(false);
@@ -13,20 +14,20 @@ export default function SingleArtist () {
     const [params, setParams] = useState();
     // const fetchArtistInfo = await getArtistInfo(artist);
 
-    
-    console.log(artist, "PARAMS ARE HERE<<<<")
-    console.log(images, "IMAGES")
-    console.log(params, "setted PARAMS")
-
     if(params !== artist && params !== undefined){
-        console.log("NOT HERE")
         window.location.reload();
-    }
+    };
     
     useEffect(() => {
-        api.getArtist(artist).then(( { data } ) => {
-            setImages(data.data);
+        api.getArtist(artist).then((  data  ) => {
             isLoading(false);
+            if(data.status === 200){
+                setImages(data.data.data);
+                return;
+            }
+            else {
+                navigate("/not_found", { replace: true });
+            };
             setParams(artist);
         }).catch((error) => {
             setError(true);
@@ -42,7 +43,7 @@ export default function SingleArtist () {
 
     return (
         <div>
-            {error ? <h1>Error</h1>
+            {error ? <NotFound/>
             :
             <div>
                 <ImageCard images={images}/>
