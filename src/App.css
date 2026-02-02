@@ -347,7 +347,50 @@ nav p:active {
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
+
+.bad-path-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 5em;
+}
+
+.bad-path-header {
+    font-size: xx-large;
+    text-align: center;
+    margin-left: 4em;
+    margin-right: 4em;
+}
+
+.error-link-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.error-link {
+    font-size: xxx-large;
+    margin-top: 2em;
+}
+
+.error-link:hover {
+    color: #f30a73;
+    transition: 250ms;
+}
+
+.error-link:active {
+    color: #5b7bca;
+    transition: 100ms;
+}
+
 
 @media (max-width: 68em){
     .banner {
