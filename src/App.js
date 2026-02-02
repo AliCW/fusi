@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router";
 import Home from "./components/Home.jsx";
 import Nav from "./components/Nav.jsx";
 import SingleArtist from "./components/SingleArtist.jsx";

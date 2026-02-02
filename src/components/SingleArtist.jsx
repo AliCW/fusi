@@ -1,5 +1,5 @@
 import React, { useEffect, useState, Suspense } from "react";
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router';
 import * as api from "../../api/api.js";
 import LoaderMoon from "./LoaderMoon.jsx";
 import ImageCard from "./ImageCard.jsx";
